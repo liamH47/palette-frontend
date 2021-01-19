@@ -3,10 +3,16 @@ import '../StyleSheets/ColorTile.css'
 
 class ColorTile extends Component {
     render() {
+        const {name, background } = this.props
         return (
             <div style={{ background: this.props.background }} className='Color-Tile'>
-                <span>{this.props.name}</span>
-                <span>more</span>
+                <div className='copy-btn-container'>
+                    <div className='tile-content'>
+                        <span>{name}</span>
+                    </div>
+                    <button className='copy-btn'>Copy</button>
+                </div>
+                <span className='see-more'>More</span>
             </div>
         );
     }
