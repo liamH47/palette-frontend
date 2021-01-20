@@ -1,0 +1,1 @@
+const SET_PALETTE = 'SET_PALETTE'

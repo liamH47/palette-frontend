@@ -1,19 +1,38 @@
 import React, { Component } from 'react';
 import ColorTile from './ColorTile'
 import '../StyleSheets/Palette.css'
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
+import { connect } from 'react-redux'
 
 class Palette extends Component {
 
-    // componentDidMount() {
-    //     console.log(this.props.palette);
-    //     debugger
-    // }
+    constructor(props) {
+        super(props)
+        this.state = { level:500}
+        this.changeLevel = this.changeLevel.bind(this)
+        }
+        changeLevel(level) {
+            this.setState({ level })
+        }
+    
     
 
     render() {
-        const colorTiles = this.props.palette.colors.map(color => (<ColorTile background={color.color} name={color.name} />))
+        const { colors } = this.props.palette
+        const { level } = this.state
+        const colorTiles = colors[level].map(color => (<ColorTile background={color.hex} name={color.name} />))
         return (
             <div className='Palette' >
+                <div className='slider'>
+                    <Slider 
+                        defaultValue={level}
+                        min={100}
+                        max={900}
+                        step={100}
+                        onAfterChange={this.changeLevel}
+                    />
+                </div>
                 <div className='Palette-colors'>
                     {colorTiles}
                 </div>
@@ -22,4 +41,4 @@ class Palette extends Component {
     }
 }
 
-export default Palette;
+export default connect  (Palette);
