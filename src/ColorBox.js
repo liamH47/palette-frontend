@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../StyleSheets/ColorTile.css'
+import './ColorBox.css'
 import {CopyToClipboard} from 'react-copy-to-clipboard'
 
-class ColorTile extends Component {
+class ColorBox extends Component {
 
     constructor(props) {
         super(props);
@@ -10,9 +10,6 @@ class ColorTile extends Component {
         this.changeCopyState = this.changeCopyState.bind(this)
     }
 
-    state = {
-        copied: false
-    }
     changeCopyState(){
         this.setState({ copied: true}, () => {
             setTimeout(() => this.setState({ copied: false }), 1500)
@@ -20,21 +17,21 @@ class ColorTile extends Component {
     }
 
     render() {
-        const {name, background } = this.props
+        const { name, background } = this.props
         const { copied } = this.state
         return (
                 <CopyToClipboard text={background} onCopy={this.changeCopyState}>
-                    <div style={{ background: this.props.background }} className='Color-Tile'>
-                        <div style={{ background: this.props.background }}  className={`copy-overlay ${copied && 'show'}`}></div>
+                    <div style={{ background }} className='ColorBox'>
+                        <div style={{ background }}  className={`copy-overlay ${copied && 'show'}`}></div>
                         <div className={`copy-msg ${copied && 'show'}`}>
                             <h1>Copied to Clipboard!</h1>
                             <p>{this.props.background}</p>
                         </div>
-                        <div className='copy-btn-container'>
-                            <div className='tile-content'>
+                        <div className='copy-container'>
+                            <div className='box-content'>
                                 <span>{name}</span>
                             </div>
-                                <button className='copy-btn'>Copy</button>
+                                <button className='copy-button'>Copy</button>
                         </div>
                         <span className='see-more'>More</span>
                     </div>
@@ -43,4 +40,4 @@ class ColorTile extends Component {
     }
 }
 
-export default ColorTile;
+export default ColorBox;
