@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import seedPalettes from './Components/seedPalettes'
-import Palette from './Components/Palette'
+import seedPalettes from './seedPalettes'
+import Palette from './Palette'
 import { generatePalette } from './colorHelpers'
 
 class App extends Component {
