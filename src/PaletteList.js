@@ -4,6 +4,7 @@ import MiniPalette from './MiniPalette'
 import { withStyles } from '@material-ui/styles'
 import styles from './styles/PaletteListStyles'
 
+
 // const styles = {
 //     root: {
 //         backgroundColor: "blue",
@@ -46,6 +47,7 @@ class PaletteList extends Component {
                 <div className={classes.container}>
                     <nav className={classes.nav}>
                         <h1>paLit</h1>
+                        <Link to='/palette/new'>Create Palette</Link>
                     </nav>
                     <div className={classes.palettes}>
                         {paletteList.map(palette => (
