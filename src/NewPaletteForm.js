@@ -82,14 +82,11 @@ class NewPaletteForm extends Component {
         open: true,
         colors: this.props.palettes[0].colors
     };
-    submitHandler = (newPaletteName) => {
-        const newPalette = {
-          paletteName: newPaletteName,
-          id: newPaletteName.toLowerCase().replace(/ /g, "-"),
-          colors: this.state.colors
-        }
-        this.props.savePalette(newPalette)
-        this.props.history.push("/")
+    submitHandler = (newPalette) => {
+      newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
+      newPalette.colors = this.state.colors;
+      this.props.savePalette(newPalette);
+      this.props.history.push("/");
     }          
     handleDrawerOpen = () => {
       this.setState({ open: true });
