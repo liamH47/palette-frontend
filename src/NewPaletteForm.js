@@ -8,13 +8,10 @@ import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Button from '@material-ui/core/Button';
-import { ChromePicker } from 'react-color'
 import DraggableColorList from './DraggableColorList'
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
 import { arrayMove } from 'react-sortable-hoc';
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm'
-
 
 const drawerWidth = 400;
 
@@ -22,33 +19,19 @@ const styles = theme => ({
   root: {
     display: "flex"
   },
-  appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 20
-  },
+
   hide: {
     display: "none"
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0
+    flexShrink: 0,
+    height: "100vh"
   },
   drawerPaper: {
-    width: drawerWidth
+    width: drawerWidth,
+    display: "flex",
+    alignItems: "center"
   },
   drawerHeader: {
     display: "flex",
@@ -73,6 +56,20 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen
     }),
     marginLeft: 0
+  },
+  container: {
+    width: "90%",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttons: {
+    width: "100%"
+  },
+  button: {
+    width: "50%"
   }
 });
 
@@ -81,12 +78,10 @@ class NewPaletteForm extends Component {
     static defaultProps = {
       maxColors: 20
     }
-
     state = {
         open: true,
         colors: this.props.palettes[0].colors
-      };
-
+    };
     submitHandler = (newPaletteName) => {
         const newPalette = {
           paletteName: newPaletteName,
@@ -95,8 +90,7 @@ class NewPaletteForm extends Component {
         }
         this.props.savePalette(newPalette)
         this.props.history.push("/")
-    }
-          
+    }          
     handleDrawerOpen = () => {
       this.setState({ open: true });
     };
@@ -129,8 +123,6 @@ class NewPaletteForm extends Component {
       const randomColor = allColors[rand];
       this.setState({ colors: [...this.state.colors, randomColor] });
     }
-
-
     render() {
         const { classes, maxColors, palettes } = this.props;
         const { open, colors } = this.state;
@@ -139,7 +131,7 @@ class NewPaletteForm extends Component {
             <div className={classes.root}>
             <PaletteFormNav 
               open={open} 
-              classes={classes} 
+              // classes={classes} 
               palettes={palettes} 
               submitHandler={this.submitHandler}
               handleDrawerOpen={this.handleDrawerOpen}
@@ -159,29 +151,33 @@ class NewPaletteForm extends Component {
                 </IconButton>
               </div>
               <Divider />
-              <Typography variant='h4'>Design Your Palette</Typography>
-              <div>
-                <Button 
-                  variant='contained' 
-                  color='secondary' 
-                  onClick={this.clearColors}
-                >
-                  Clear Palette
-                </Button>
-                <Button 
-                  variant='contained' 
-                  color='primary'
-                  onClick={this.addRandomColor}
-                  disabled={paletteIsFull}
-                >
-                  Random Color
-                </Button>
+              <div className={classes.container}>
+                <Typography variant='h4' gutterBottom>Design Your Palette</Typography>
+                <div className={classes.buttons}>
+                  <Button 
+                    variant='contained' 
+                    color='secondary' 
+                    onClick={this.clearColors}
+                    className={classes.button}
+                    >
+                    Clear Palette
+                  </Button>
+                  <Button 
+                    variant='contained' 
+                    color='primary'
+                    onClick={this.addRandomColor}
+                    disabled={paletteIsFull}
+                    className={classes.button}
+                    >
+                    Random Color
+                  </Button>
+                </div>
+                <ColorPickerForm 
+                  addNewColor={this.addNewColor} 
+                  paletteIsFull={paletteIsFull}
+                  colors={colors}
+                  />
               </div>
-              <ColorPickerForm 
-                addNewColor={this.addNewColor} 
-                paletteIsFull={paletteIsFull}
-                colors={colors}
-              />
             </Drawer>
             <main
               className={classNames(classes.content, {
@@ -194,7 +190,7 @@ class NewPaletteForm extends Component {
                   axis='xy' 
                   colors={colors} 
                   removeColor={this.removeColor} 
-                />
+              />
             </main>
           </div>
         );
