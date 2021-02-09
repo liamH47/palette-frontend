@@ -4,44 +4,13 @@ import MiniPalette from './MiniPalette'
 import { withStyles } from '@material-ui/styles'
 import styles from './styles/PaletteListStyles'
 
-
-// const styles = {
-//     root: {
-//         backgroundColor: "blue",
-//         height: "100%",
-//         display: "flex",
-//         alignItems: "flex-start",
-//         justifyContent: "center"
-//     }, 
-//     container: {
-//         width: "50%",
-//         display: "flex",
-//         alignItems: "flex-start",
-//         flexDirection: "column",
-//         flexWrap: "wrap"
-//     },
-//     nav: {
-//         display: "flex",
-//         width: "100%",
-//         justifyContent: "space-between",
-//         color: "white"
-//     },
-//     palettes: {
-//         boxSizing: "border-box",
-//         width: "100%",
-//         display: "grid",
-//         gridTemplateColumns: "repeat(3, 30%)",
-//         gridGap: "5%"
-//     }
-// }
-
 class PaletteList extends Component {
     goToPalette(id){
         this.props.history.push(`/palette/${id}`)
     }    
 
     render() {
-        const { paletteList, classes } = this.props;
+        const { palettes, classes, deletePalette } = this.props;
         return (
             <div className={classes.root}>
                 <div className={classes.container}>
@@ -50,10 +19,14 @@ class PaletteList extends Component {
                         <Link to='/palette/new'>Create Palette</Link>
                     </nav>
                     <div className={classes.palettes}>
-                        {paletteList.map(palette => (
+                        {palettes.map(palette => (
                             <MiniPalette 
                                 {...palette} 
-                                handleClick={() => this.goToPalette(palette.id)}/>
+                                key={palette.id}
+                                id={palette.id}
+                                deletePalette={deletePalette}
+                                handleClick={() => this.goToPalette(palette.id)}
+                            />
                         ))}
                         
                     </div>
