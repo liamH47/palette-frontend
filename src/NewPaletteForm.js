@@ -12,8 +12,8 @@ import DraggableColorList from './DraggableColorList'
 import { arrayMove } from 'react-sortable-hoc';
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm'
-
-const drawerWidth = 400;
+// import styles from './styles/NewPaletteFormStyles'
+const drawerWidth = 400
 
 const styles = theme => ({
   root: {
