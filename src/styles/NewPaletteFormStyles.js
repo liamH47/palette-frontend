@@ -3,7 +3,8 @@ const drawerWidth = DRAWER_WIDTH
 
 const styles = theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    backgroundColor: "#FFF8E7"
   },
 
   hide: {
@@ -17,7 +18,8 @@ const styles = theme => ({
   drawerPaper: {
     width: drawerWidth,
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#FFF8E7"
   },
   drawerHeader: {
     display: "flex",
@@ -25,7 +27,8 @@ const styles = theme => ({
     width: "100%",
     padding: "0 8px",
     ...theme.mixins.toolbar,
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
+    backgroundColor: "#FFF8E7"
   },
   content: {
     flexGrow: 1,

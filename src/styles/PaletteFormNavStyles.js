@@ -14,7 +14,8 @@ const styles = theme => ({
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-      height: "64px"
+      height: "64px",
+      backgroundColor: "#FFF8E7"
     },
     appBarShift: {
       width: `calc(100% - ${drawerWidth}px)`,
