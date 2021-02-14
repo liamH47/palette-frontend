@@ -1,4 +1,5 @@
 import sizes from './mediaSizes'
+import backGround from './backGround.svg'
 export default {
     "@global": {
       ".fade-exit": {
@@ -10,11 +11,14 @@ export default {
       }
     },
     root: {
-      backgroundColor: "blue",
       height: "100vh",
       display: "flex",
       alignItems: "flex-start",
-      justifyContent: "center"
+      justifyContent: "center",
+     /* background by SVGBackgrounds.com */
+      backgroundColor: "#ffe0f9",
+      backgroundImage: `url(${backGround})`,
+      overflow: "scroll"
     },
     container: {
       width: "50%",
@@ -34,9 +38,9 @@ export default {
       width: "100%",
       justifyContent: "space-between",
       alignItems: "center",
-      color: "white",
+      color: "#1CAD35",
       "& a": {
-        color: "white"
+        color: "#1CAD35"
       }
     },
     palettes: {
