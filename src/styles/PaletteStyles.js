@@ -3,7 +3,8 @@ export default {
     Palette: {
         height: "100vh",
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        backgroundColor: "#FFF8E7"
     },
     colors: {
         height: "90%"
