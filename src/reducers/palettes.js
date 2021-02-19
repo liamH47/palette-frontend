@@ -1,10 +1,10 @@
-const reducer  = (state, action) => {
+const reducer  = (palettes = [], action) => {
     switch (action.type) {
-        case value:
-            
-            break;
-    
+        case 'FETCH_ALL':
+            return palettes
+        case 'CREATE':
+            return palettes
         default:
-            break;
+            return palettes
     }
 }
