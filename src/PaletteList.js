@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import MiniPalette from './MiniPalette'
 import { withStyles } from '@material-ui/styles'
 import Dialog from "@material-ui/core/Dialog";
-
+import Button from '@material-ui/core/Button';
 import DialogTitle from "@material-ui/core/DialogTitle";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -54,7 +54,9 @@ class PaletteList extends Component {
                 <div className={classes.container}>
                     <nav className={classes.nav}>
                         <h1>paLit</h1>
-                        <Link to='/palette/new'>Create Palette</Link>
+                        <Link to='/palette/new'>
+                            Create Palette
+                        </Link>
                     </nav>
                     <TransitionGroup className={classes.palettes}>
                         {paletteList.map(palette => (
