@@ -21,12 +21,6 @@ const styles = {
   },
   container: {
     width: "100%"
-    // height: "100%",
-    // display: "flex",
-    // flexDirection: "column",
-    // justifyContent: "center",
-    // alignItems: "center",
-    // marginTop: "2rem"
   },
 }
 class ColorPickerForm extends Component {
@@ -69,6 +63,8 @@ class ColorPickerForm extends Component {
         const { currentColor, newColorName } = this.state
         return (
             <div className={classes.container}>
+              <div style={{backgroundColor: currentColor}}>
+              </div>
               <ChromePicker 
                 color={currentColor} 
                 onChangeComplete={this.updateCurrentColor} 
