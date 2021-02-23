@@ -13,6 +13,7 @@ import { arrayMove } from 'react-sortable-hoc';
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm'
 import styles from './styles/NewPaletteFormStyles'
+import seedPalettes from './seedPalettes'
 
 class NewPaletteForm extends Component {
 
@@ -21,7 +22,7 @@ class NewPaletteForm extends Component {
     }
     state = {
         open: true,
-        colors: this.props.palettes[0].colors
+        colors: seedPalettes[0].colors
     };
     submitHandler = (newPalette) => {
       newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
