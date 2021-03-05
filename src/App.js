@@ -12,7 +12,6 @@ import './App.css'
 const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"))
 class App extends Component {
   
-
   state = {
     palettes: savedPalettes || seedPalettes 
   }
@@ -93,9 +92,6 @@ class App extends Component {
           </CSSTransition>
         </TransitionGroup>
       )} />
-      // <div>
-      //   <Palette palette={generatePalette(seedPalettes[4])} />
-      // </div>
     );
   }
 }

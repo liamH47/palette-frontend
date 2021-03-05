@@ -1,6 +1,6 @@
 export default {
     root: {
-      backgroundColor: "white",
+      backgroundColor: "#FFF8E7",
       border: "1px solid black",
       borderRadius: "5px",
       padding: "0.5rem",
@@ -9,7 +9,7 @@ export default {
       cursor: "pointer",
       "&:hover svg": {
         opacity: 1
-      }
+      },
     },
     colors: {
       backgroundColor: "#dae1e4",
