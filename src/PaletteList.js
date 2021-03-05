@@ -54,7 +54,7 @@ class PaletteList extends Component {
                 <div className={classes.container}>
                     <nav className={classes.nav}>
                         <h1>paLit</h1>
-                        <Link to='/palette/new'>
+                        <Link className={classes.link} to='/palette/new'>
                             Create Palette
                         </Link>
                     </nav>

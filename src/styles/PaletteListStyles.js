@@ -40,8 +40,9 @@ export default {
       alignItems: "center",
       color: "#1CAD35",
       "& a": {
-        color: "#1CAD35"
-      }
+        color: "#1CAD35",
+        border: "1px solid #1CAD35"
+      },
     },
     palettes: {
       boxSizing: "border-box",
