@@ -39,9 +39,12 @@ export default {
       justifyContent: "space-between",
       alignItems: "center",
       color: "#1CAD35",
-      "& a": {
-        color: "#1CAD35",
-        border: "1px solid #1CAD35"
+      // "& a": {
+      //   color: "#1CAD35",
+      //   border: "1px solid #1CAD35"
+      // },
+      "& h1": {
+        fontSize: "3em"
       },
     },
     palettes: {
@@ -57,5 +60,14 @@ export default {
         gridTemplateColumns: "repeat(1, 100%)",
         gridGap: "1rem"
       }
+    },
+    link: {
+      color: "#1CAD35",
+      border: "2px solid #1CAD35",
+      fontSize: "1.2em",
+      padding: "4px",
+      borderRadius: "4px",
+      textDecoration: "none",
+      backgroundColor: "#FFF8E7"
     }
   };
