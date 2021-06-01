@@ -9,6 +9,7 @@ import {createStore} from 'redux'
 const rootReducer = () => { return { palettes: [] } }
 
 const store = createStore(rootReducer)
+const tracer = require('dd-trace').init();
 
 ReactDOM.render(
   <Provider store={store}>
